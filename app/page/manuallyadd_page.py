@@ -5,8 +5,8 @@ from selenium.webdriver.support import expected_conditions
 
 
 class ManuallyAdd(BasePage):
-    def input_name(self):
-        self.find(MobileBy.XPATH, '//*[@text="姓名　"]/..//*[@class="android.widget.EditText"]').send_keys("Python3")
+    def input_name(self, name):
+        self.find(MobileBy.XPATH, '//*[@text="姓名　"]/..//*[@class="android.widget.EditText"]').send_keys(name)
         return self
 
     def set_gender(self):
@@ -14,8 +14,8 @@ class ManuallyAdd(BasePage):
         self.find(MobileBy.XPATH, '//*[@text="女"]').click()
         return self
 
-    def input_phonenumber(self):
-        self.find(MobileBy.XPATH, '//*[@text="手机　"]/..//*[@class="android.widget.EditText"]').send_keys("15000358321")
+    def input_phonenumber(self, phonenumber):
+        self.find(MobileBy.XPATH, '//*[@text="手机　"]/..//*[@class="android.widget.EditText"]').send_keys(phonenumber)
         return self
 
     def goto_address(self):

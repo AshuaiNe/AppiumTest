@@ -8,3 +8,6 @@ class AddMember(BasePage):
         from app.page.manuallyadd_page import ManuallyAdd
         self.find(MobileBy.XPATH, '//*[@text="手动输入添加"]').click()
         return ManuallyAdd(self._driver)
+
+    def get_toast(self):
+        return self.find(MobileBy.XPATH, '//*[@class="android.widget.Toast"]').text
