@@ -29,5 +29,6 @@ class BasePage:
                 elements = self._driver.find_elements(*ele)
                 if len(elements) > 0:
                     elements[0].click()
-                    return self.find(locator, value)
+                    break
+                return self.find(locator, value)
             raise e
