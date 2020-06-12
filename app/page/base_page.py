@@ -30,5 +30,4 @@ class BasePage:
                 if len(elements) > 0:
                     elements[0].click()
                     break
-                return self.find(locator, value)
-            raise e
+            return self.find(locator, value)
