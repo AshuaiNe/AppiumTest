@@ -1,6 +1,6 @@
-from app.page.addresslist_page import AddressList
+from appium_watch.app.page.addresslist_page import AddressList
 from appium.webdriver.common.mobileby import MobileBy
-from app.page.base_page import BasePage
+from appium_watch.app.page.base_page import BasePage
 
 
 class Main(BasePage):

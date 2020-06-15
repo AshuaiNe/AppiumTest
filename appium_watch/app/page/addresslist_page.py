@@ -1,5 +1,5 @@
-from app.page.addmember_page import AddMember
-from app.page.base_page import BasePage
+from appium_watch.app.page.addmember_page import AddMember
+from appium_watch.app.page.base_page import BasePage
 
 
 class AddressList(BasePage):

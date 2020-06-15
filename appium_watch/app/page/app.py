@@ -1,5 +1,5 @@
-from app.page.main import Main
-from app.page.base_page import BasePage
+from appium_watch.app.page.main import Main
+from appium_watch.app.page.base_page import BasePage
 from appium import webdriver
 
 

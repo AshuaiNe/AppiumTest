@@ -1,9 +1,7 @@
 from appium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.common.by import By
 from appium.webdriver.common.mobileby import MobileBy
-from time import sleep
 
 
 class TestBrowser:
