@@ -1,5 +1,4 @@
 from appium_xueqiu.app.page.base_page import BasePage
-from selenium.webdriver.common.by import By
 from appium_xueqiu.app.page.market import Market
 
 
@@ -9,7 +8,7 @@ class Main(BasePage):
         pass
 
     def goto_market(self):
-        self.find(By.XPATH, "//*[@resource-id='android:id/tabs']//*[@text='行情']").click()
+        self.steps("appium_xueqiu/app/data/main.yml")
         return Market(self._driver)
 
     def goto_deal(self):

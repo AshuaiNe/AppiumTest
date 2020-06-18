@@ -1,20 +1,21 @@
 from appium_xueqiu.app.page.base_page import BasePage
-from selenium.webdriver.common.by import By
 
 
 class Search(BasePage):
     def search(self, name):
-        self.find(By.XPATH, "//*[@resource-id='com.xueqiu.android:id/search_input_text']").send_keys("阿里巴巴")
-        self.find(By.XPATH, "//*[@text='BABA']").click()
-        self.find(By.XPATH, f"//*[contains(@resource-id, 'll_stock_item_container')]//*[@text='{name}']/../..//*[@text='加自选']").click()
+        self._params["name"] = name
+        self.steps("appium_xueqiu/app/data/search.yml")
         return self
 
-    def add(self):
-        pass
+    def add(self, name):
+        self._params["name"] = name
+        self.steps("appium_xueqiu/app/data/search.yml")
 
-    def in_choose(self, name):
-        self.find(By.XPATH, f"//*[contains(@resource-id, 'll_stock_item_container')]//*[@text='{name}']/../..//*[@text='已添加']")
+    def is_choose(self, name):
+        self._params["name"] = name
+        return self.steps("appium_xueqiu/app/data/search.yml")
+
+    def reset(self, name):
+        self._params["name"] = name
+        self.steps("appium_xueqiu/app/data/search.yml")
         return self
-
-    def reset(self):
-        pass
