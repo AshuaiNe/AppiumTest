@@ -4,6 +4,8 @@ from appium.webdriver import WebElement
 import yaml
 import inspect
 import json
+import time
+import os
 
 
 class BasePage:
@@ -12,22 +14,33 @@ class BasePage:
     def __init__(self, driver: WebDriver = None):
         self._driver = driver
 
+    def screenshot(self, file_path: str = None):
+        if file_path is None:
+            project_path = os.getcwd()
+            file_path = project_path + "/image/"
+            if not os.path.exists(file_path):
+                os.makedirs(file_path)
+            image_name = int(time.time())
+            file_path = file_path + str(image_name) + '.png'
+        self._driver.save_screenshot(file_path)
+        return file_path
+
     @handle_black
     def find(self, locator, value: str = None):
         element: WebElement
         if isinstance(locator, tuple):
-            elements = self._driver.find_element(*locator)
+            element = self._driver.find_element(*locator)
         else:
-            elements = self._driver.find_element(locator, value)
-        return elements
+            element = self._driver.find_element(locator, value)
+        return element
 
     def finds(self, locator, value: str = None):
         element: list
         if isinstance(locator, tuple):
-            element = self._driver.find_elements(*locator)
+            elements = self._driver.find_elements(*locator)
         else:
-            element = self._driver.find_elements(locator, value)
-        return element
+            elements = self._driver.find_elements(locator, value)
+        return elements
 
     def steps(self, path):
         with open(path, encoding="utf-8") as f:

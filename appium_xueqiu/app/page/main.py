@@ -8,7 +8,7 @@ class Main(BasePage):
         pass
 
     def goto_market(self):
-        self.steps("appium_xueqiu/app/data/main.yml")
+        self.steps("../data/main.yml")
         return Market(self._driver)
 
     def goto_deal(self):
